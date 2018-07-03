@@ -1,4 +1,4 @@
-import R from 'ramda'
+import * as R from 'ramda'
 
 const getPhoneById = (state, id) => R.prop(id, state.phones)
 
