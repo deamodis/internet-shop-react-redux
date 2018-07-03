@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
 import {fetchPhones} from '../../actions/index'
+import {getPhones} from 'selectors'
 
 class Phones extends Component{
     componentDidMount() {
@@ -16,6 +17,10 @@ class Phones extends Component{
         )
     }
 }
+
+const mapStateToProps = state => ({
+    phones: getPhones(state)
+});
 
 const mapDispatchToProps = {
     fetchPhones
