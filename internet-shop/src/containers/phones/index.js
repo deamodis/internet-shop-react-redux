@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {fetchPhones} from '../../actions/index'
+import {fetchPhones, loadMorePhones} from '../../actions/index'
 import {getPhones} from '../../selectors'
 import * as R from 'ramda'
+
 
 class Phones extends Component{
     componentDidMount() {
@@ -44,12 +45,20 @@ class Phones extends Component{
     }
 
     render(){
-        const {phones} = this.props;
+        const {phones, loadMorePhones} = this.props;
 
         return(
             <div>
                 <div className="books row">
                     {phones.map((phone, index)=> this.renderPhone(phone, index))}
+                </div>
+                <div className="row">
+                    <div className='col-md-12'>
+                        <button onClick={loadMorePhones} className='pull-right btn btn-primary'>
+                        Load more
+                        </button>
+                    </div>
+
                 </div>
             </div>
         )
@@ -61,7 +70,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-    fetchPhones
+    fetchPhones,
+    loadMorePhones
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Phones) // в connect берутся методы mapDispatchToProps и вызываются,

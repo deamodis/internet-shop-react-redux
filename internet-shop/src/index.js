@@ -6,6 +6,7 @@ import {createStore, applyMiddleware} from 'redux'
 import './index.css';
 import {browserHistory} from 'react-router'
 import reducers from './reducers/index'
+import bootstrap from 'bootstrap3/dist/css/bootstrap.css'
 
 import {syncHistoryWithStore} from 'react-router-redux'
 import {Provider} from 'react-redux'
