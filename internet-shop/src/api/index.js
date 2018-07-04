@@ -1,8 +1,9 @@
+import * as R from 'ramda'
+
 import phones from './mockPhones'
 
 export const fetchPhones = async () => {
     return new Promise( resolve => {
-        console.log('rabotaet')
         resolve(phones)
     })
 };
@@ -10,7 +11,14 @@ export const fetchPhones = async () => {
 
 export const loadMorePhones = async () => {
     return new Promise( resolve => {
-        console.log('eto')
         resolve(phones)
+    })
+};
+
+
+export const fetchPhoneById = async id => {
+    return new Promise((resolve, reject)=> {
+        const phone = R.find(R.propEq('id', id), phones);
+        resolve(phone);
     })
 };
