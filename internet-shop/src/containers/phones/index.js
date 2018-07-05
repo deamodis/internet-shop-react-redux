@@ -58,7 +58,6 @@ class Phones extends Component{
                         Load more
                         </button>
                     </div>
-
                 </div>
             </div>
         )
