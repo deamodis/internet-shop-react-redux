@@ -7,7 +7,9 @@ import {
     LOAD_MORE_PHONES_FAIL,
     FETCH_PHONE_BY_ID_START,
     FETCH_PHONE_BY_ID_SUCCESS,
-    FETCH_PHONE_BY_ID_FAIL, ADD_PHONE_TO_BASKET
+    FETCH_PHONE_BY_ID_FAIL,
+    ADD_PHONE_TO_BASKET,
+    SEARCH_PHONE
 } from "../actionsType";
 
 import {getRenderedPhonesLength} from '../selectors'
@@ -33,6 +35,7 @@ export const fetchPhones = () => async dispatch => {
 };
 
 
+
 export const loadMorePhones = () => async (dispatch, getState) => {
     const offset = getRenderedPhonesLength(getState());
     dispatch({type: LOAD_MORE_PHONES_START});
@@ -48,6 +51,8 @@ export const loadMorePhones = () => async (dispatch, getState) => {
     }
 };
 
+
+
 export const fetchPhoneById = (id) => async (dispatch) => {
     dispatch({type: FETCH_PHONE_BY_ID_START});
 
@@ -60,9 +65,20 @@ export const fetchPhoneById = (id) => async (dispatch) => {
     }
 };
 
+
+
 export const addPhoneToBasket = id => dispatch => {
     dispatch({
         type: ADD_PHONE_TO_BASKET,
         payload: id
+    })
+};
+
+
+
+export const searchPhone = text => dispatch => {
+    dispatch({
+        type: SEARCH_PHONE,
+        payload: text
     })
 };
