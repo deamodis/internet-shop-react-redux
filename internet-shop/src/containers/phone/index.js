@@ -1,9 +1,11 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router'
 import * as R from 'ramda'
 
-import {fetchPhoneById} from '../../actions';
+import {addPhoneToBasket, fetchPhoneById} from '../../actions';
 import {getPhoneById} from "../../selectors";
+import BasketCart from "../../components/basketCart/index.js"
 
 class Phone extends Component {
 
@@ -64,13 +66,34 @@ class Phone extends Component {
     }
 
     renderSidebar(){
+        const {phone, addPhoneToBasket} = this.props;
+
         return(
-            <div>Sidebar</div>
+           <div>
+               <p className="lead">Quick shop</p>
+               <BasketCart/>
+               <div className="form-group">
+                   <h1>{phone.name}</h1>
+                   <h2>${phone.price}</h2>
+               </div>
+               <Link to='/'
+                     className='btn btn-info btn-block'>
+                   Back to Store
+               </Link>
+               <button
+                   type="button"
+                   className='btn btn-success btn-block'
+                   onClick={() => addPhoneToBasket(phone.id)}
+               >
+                   Add to cart
+               </button>
+           </div>
+
         )
     }
 
     render(){
-        const {phone} = this.props;
+        const {phone} = this.props; // почему this.renderContent() не имеет доступа к phone V
 
         return <div className="view-container">
             <div className="container">
@@ -91,10 +114,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-    fetchPhoneById
+    fetchPhoneById,
+    addPhoneToBasket
 };
 
-export default connect(mapStateToProps,
+export default connect(
+    mapStateToProps,
     mapDispatchToProps
 
 )(Phone);
