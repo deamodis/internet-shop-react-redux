@@ -15,7 +15,6 @@ export const getPhones = state => {
     )(state.phonesPage.ids);
 
     return phones;
-    // const phones = R.map(id => getPhoneById(state, id), state.phonesPage.ids);
 
 };
 

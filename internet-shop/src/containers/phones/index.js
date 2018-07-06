@@ -3,7 +3,8 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router'
 import {fetchPhones,
         loadMorePhones,
-        addPhoneToBasket} from '../../actions/index'
+        addPhoneToBasket,
+        fetchCategories} from '../../actions/index'
 import {getPhones} from '../../selectors'
 import * as R from 'ramda'
 
@@ -11,6 +12,7 @@ import * as R from 'ramda'
 class Phones extends Component{
     componentDidMount() {
      this.props.fetchPhones();
+     this.props.fetchCategories();
     }
 
 
@@ -75,7 +77,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
     fetchPhones,
     loadMorePhones,
-    addPhoneToBasket
+    addPhoneToBasket,
+    fetchCategories
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Phones) // в connect берутся методы mapDispatchToProps и вызываются,
