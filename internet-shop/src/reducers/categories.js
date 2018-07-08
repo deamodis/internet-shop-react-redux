@@ -10,8 +10,10 @@ export default (state = initialState, {type, payload}) => {
     switch(type){
         case FETCH_CATEGORIES_SUCCESS:
             const newValues = R.indexBy(R.prop('id'), payload);
+            console.log('cat suc')
             return R.merge(state, newValues);
         default:
+            console.log('default')
             return state
     }
 }

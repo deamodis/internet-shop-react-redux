@@ -19,6 +19,7 @@ class Phones extends Component{
     renderPhone(phone, index){
         const shortDescription = `${R.take(60, phone.description)}`;
         const {addPhoneToBasket} =  this.props;
+
         return <div className="col-sm-4 col-lg-4 col-md-4 book-list" key={index}>
             <div className="thumbnail">
                 <img className='mg-thumbnail'

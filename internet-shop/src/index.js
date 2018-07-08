@@ -15,6 +15,7 @@ import Layout from './containers/layout'
 import Phones from './containers/phones/index.js'
 import Phone from './containers/phone/index.js'
 
+
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
 const history = syncHistoryWithStore(browserHistory, store);
 

@@ -5,7 +5,7 @@ import phones from './phones'
 import phonesPage from './phonesPage'
 import phonePage from './phonePage'
 import basket from './basket'
-import catagories from './categories'
+import categories from './categories'
 
 export default combineReducers({
     routing: routerReducer,
@@ -13,7 +13,7 @@ export default combineReducers({
     phonesPage,
     phonePage,
     basket,
-    catagories
+    categories
 
 })
 

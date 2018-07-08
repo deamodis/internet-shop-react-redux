@@ -31,3 +31,7 @@ export const getTotalBasketPrice = state => {
 
     return totalPrice
 };
+
+export const getCategories = state => R.values(state.categories);
+
+export const getActiveCategoryId = ownProps => { console.log(ownProps); return R.path(['params','id'], ownProps) };
